@@ -47,17 +47,17 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnlogin"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:onClick="Ingresar"
             android:layout_marginBottom="20dp"
             android:text="Iniciar Sesión" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnsingup"
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:onClick="singUp"
             android:text="Regístrate" />
     </LinearLayout>
 

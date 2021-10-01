@@ -9,13 +9,18 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button jbtingresar;
+    Button jbtsingup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        jbtingresar =findViewById(R.id.button);
+        jbtsingup =findViewById(R.id.btnsingup);
+    }
+
+    public void singUp (View view){
+        Intent intsingup = new Intent(this, singup.class);
+        startActivity(intsingup);
     }
 
     public void Ingresar(View view){

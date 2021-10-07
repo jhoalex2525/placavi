@@ -30,6 +30,7 @@
             android:id="@+id/etregistername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
             android:ems="10"
             android:hint="Nombre Completo"
             android:inputType="textPersonName"
@@ -37,6 +38,7 @@
 
         <EditText
             android:id="@+id/etemail"
+            android:layout_margin="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -46,6 +48,7 @@
 
         <EditText
             android:id="@+id/etregistercountry"
+            android:layout_margin="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -56,6 +59,7 @@
         <EditText
             android:id="@+id/etregistercity"
             android:layout_width="match_parent"
+            android:layout_margin="20dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Ciudad"
@@ -64,6 +68,7 @@
 
         <EditText
             android:id="@+id/etregisterpassword"
+            android:layout_margin="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -105,6 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:layout_margin="20dp"
             android:hint="Nombre del Negocio"
             android:visibility="gone"
             android:inputType="textPersonName"

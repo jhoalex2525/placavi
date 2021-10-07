@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 public class singup extends AppCompatActivity {
 
@@ -38,4 +39,24 @@ public class singup extends AppCompatActivity {
         Intent inthome = new Intent(this, MainActivity.class);
         startActivity(inthome);
     }
+
+    public void loginFieldValidations (View view){
+        String email, password;
+        email = jetloginemail.getText().toString();
+        password = jetloginpassword.getText().toString();
+        if (email.isEmpty()){
+            Toast.makeText(this, "Email es requerido", Toast.LENGTH_SHORT).show();
+            jetloginemail.requestFocus();
+        }
+        else {
+            if (password.isEmpty()){
+                Toast.makeText(this, "Contraseña es requerida", Toast.LENGTH_SHORT).show();
+                jetloginpassword.requestFocus();
+            }
+            else {
+                Toast.makeText(this, "Bienvenido, estas logueado", Toast.LENGTH_SHORT).show();
+                Intent intwelcome = new Intent(this, MainActivity.class);
+                startActivity(intwelcome);
+            }
+        }
 }

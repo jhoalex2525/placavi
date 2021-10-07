@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intsingup);
     }
 
-    public void Ingresar(View view){
-        Intent intmostrar = new Intent(this, singup.class);
-        startActivity(intmostrar);
+    public void logIn(View view){
+        Intent intlogin = new Intent(this, login.class);
+        startActivity(intlogin);
     }
 }

@@ -35,12 +35,7 @@ public class singup extends AppCompatActivity {
         }
     }
 
-    public void home (View view){
-        Intent inthome = new Intent(this, MainActivity.class);
-        startActivity(inthome);
-    }
-
-    public void loginFieldValidations (View view){
+    public void singUpFieldValidations (View view){
         String email, password;
         email = jetloginemail.getText().toString();
         password = jetloginpassword.getText().toString();
@@ -54,7 +49,7 @@ public class singup extends AppCompatActivity {
                 jetloginpassword.requestFocus();
             }
             else {
-                Toast.makeText(this, "Bienvenido, estas logueado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Su cuenta ha sido creada", Toast.LENGTH_SHORT).show();
                 Intent intwelcome = new Intent(this, MainActivity.class);
                 startActivity(intwelcome);
             }

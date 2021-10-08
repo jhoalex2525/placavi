@@ -120,7 +120,7 @@
             android:id="@+id/btnnewregister"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:onClick="home"
+            android:onClick="singUpFieldValidations"
             android:layout_margin="20dp"
             android:text="Crear Usuario" />
 

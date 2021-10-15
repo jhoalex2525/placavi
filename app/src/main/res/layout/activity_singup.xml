@@ -73,13 +73,14 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Contraseña"
-            android:inputType="numberPassword"
+            android:inputType="textPassword"
             android:textAlignment="center" />
 
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="20dp"
+            android:checkedButton="@id/rbuser"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 

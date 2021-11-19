@@ -7,15 +7,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.placavi.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
 
-    Button jbtsingup;
+    private ActivityMainBinding activityMainBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.SplashTheme);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        jbtsingup =findViewById(R.id.btnsingup);
+        activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = activityMainBinding.getRoot();
+        setContentView(view);
+
     }
 
     public void singUp (View view){

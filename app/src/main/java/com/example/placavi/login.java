@@ -26,19 +26,24 @@ public class login extends AppCompatActivity {
         setContentView(view);
     }
 
-    public void loginEmailFieldValidations (){
+    public boolean loginEmailFieldValidations (){
         String email = activityLoginBinding.etloginemail.getText().toString();
         if (email.isEmpty()){
             Toast.makeText(this, "Email es requerido", Toast.LENGTH_SHORT).show();
+            return false;
         }
         else {
             if (!PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()){
                 Toast.makeText(this, "Inserte un formato de email válido", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            else {
+                return true;
             }
         }
     }
 
-    public void loginPasswordFieldValidations (){
+    public boolean loginPasswordFieldValidations (){
         String password = activityLoginBinding.etloginpassword.getText().toString();
         Pattern passwordpattern = Pattern.compile(
                 "^"+
@@ -50,22 +55,25 @@ public class login extends AppCompatActivity {
         );
         if (password.isEmpty()){
                 Toast.makeText(this, "Contraseña es requerida", Toast.LENGTH_SHORT).show();
+                return false;
         }
         else {
             if (!passwordpattern.matcher(password).matches())
             {
                 Toast.makeText(this, "Inserte un formato de contraseña válido", Toast.LENGTH_SHORT).show();
+                return false;
             }
             else {
-                Toast.makeText(this, "Bienvenido, estas logueado", Toast.LENGTH_SHORT).show();
-                Intent intwelcome = new Intent(this, MainActivity.class);
-                startActivity(intwelcome);
+                return true;
             }
         }
     }
 
     public void loginFieldValidations(View view){
-        loginEmailFieldValidations();
-        loginPasswordFieldValidations();
+        if (loginEmailFieldValidations()&&loginPasswordFieldValidations()){
+            Toast.makeText(this, "Bienvenido, estas logueado", Toast.LENGTH_SHORT).show();
+            Intent intwelcome = new Intent(this, MainActivity.class);
+            startActivity(intwelcome);
+        }
     }
 }

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">placavi</string>
+    <string name="btn_edit">Editar</string>
+    <string name="btn_delete">Eliminar</string>
 </resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "932905944377",
+    "project_id": "placavi-8b0c2",
+    "storage_bucket": "placavi-8b0c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:932905944377:android:939d884b7517b43e4514e8",
+        "android_client_info": {
+          "package_name": "com.example.placavi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "932905944377-un1a0dhva32em7ie30h4ahhfi2berhvs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABiFjm0fuArY2D1rWJ8a6msKyx5HCLPo8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "932905944377-un1a0dhva32em7ie30h4ahhfi2berhvs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

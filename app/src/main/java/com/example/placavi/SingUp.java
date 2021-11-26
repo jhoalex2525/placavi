@@ -15,7 +15,7 @@ import com.example.placavi.databinding.ActivitySingupBinding;
 
 import java.util.regex.Pattern;
 
-public class singup extends AppCompatActivity {
+public class SingUp extends AppCompatActivity {
 
     private ActivitySingupBinding activitySingupBinding;
 

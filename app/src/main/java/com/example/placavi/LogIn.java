@@ -14,7 +14,7 @@ import com.example.placavi.databinding.ActivityLoginBinding;
 
 import java.util.regex.Pattern;
 
-public class login extends AppCompatActivity {
+public class LogIn extends AppCompatActivity {
 
     private ActivityLoginBinding activityLoginBinding;
 

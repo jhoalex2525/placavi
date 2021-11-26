@@ -1,6 +1,8 @@
 package com.example.placavi.Adapters;
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -23,20 +25,31 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     @NonNull
     @Override
-    public ProductAdapter.ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+    public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        productItemBinding = ProductItemBinding.inflate(LayoutInflater.from(context));
+        return new ProductViewHolder(productItemBinding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ProductAdapter.ProductViewHolder holder, int position) {
-
+        Product product = productArrayList.get(position);
+        holder.itemBinding.tvName.setText(product.getName());
+        holder.itemBinding.tvDescription.setText(product.getDescription());
+        holder.itemBinding.tvStock.setText(String.valueOf(product.getStock()));
+        holder.itemBinding.tvPrice.setText(String.valueOf(product.getPrice()));
+        holder.itemBinding.tvCategory.setText(product.getCategory());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return productArrayList.size();
     }
 
-    public class ProductViewHolder {
+    public class ProductViewHolder extends RecyclerView.ViewHolder {
+        ProductItemBinding itemBinding;
+        public ProductViewHolder(@NonNull ProductItemBinding itemBinding) {
+            super(itemBinding.getRoot());
+            this.itemBinding = itemBinding;
+        }
     }
 }

@@ -1,6 +1,9 @@
 package com.example.placavi.Entities;
 
+import com.google.firebase.firestore.DocumentId;
+
 public class Product {
+    @DocumentId
     private String id;
     private String name;
     private String description;

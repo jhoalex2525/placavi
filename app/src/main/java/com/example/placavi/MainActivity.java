@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void logIn(View view){
-        Intent intlogin = new Intent(this, LogIn.class);
+        Intent intlogin = new Intent(this, Products.class);
         startActivity(intlogin);
     }
 }

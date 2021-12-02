@@ -4,12 +4,16 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.placavi.Entities.Product;
 import com.example.placavi.databinding.ProductItemBinding;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -18,9 +22,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     private Context context;
     private ProductItemBinding productItemBinding;
     private ArrayList<Product> productArrayList;
-    public ProductAdapter(Context context, ArrayList<Product> productArrayList){
+    private FirebaseFirestore db;
+    public ProductAdapter(Context context, ArrayList<Product> productArrayList, FirebaseFirestore db){
         this.context = context;
         this.productArrayList = productArrayList;
+        this.db = db;
     }
 
     @NonNull
@@ -38,6 +44,25 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.itemBinding.tvStock.setText(String.valueOf(product.getStock()));
         holder.itemBinding.tvPrice.setText(String.valueOf(product.getPrice()));
         holder.itemBinding.tvCategory.setText(product.getCategory());
+        holder.itemBinding.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db.collection("products").document(product.getId()).delete()
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(context, "Registro eliminado", Toast.LENGTH_SHORT).show();
+                                productArrayList.remove(holder.getAdapterPosition());
+                                notifyDataSetChanged();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(context, "Falló eliminando registro", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
     }
 
     @Override

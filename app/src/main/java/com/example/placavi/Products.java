@@ -33,7 +33,7 @@ public class Products extends AppCompatActivity {
         setContentView(view);
         db = FirebaseFirestore.getInstance();
         productArrayList = new ArrayList<>();
-        productAdapter = new ProductAdapter(this, productArrayList);
+        productAdapter = new ProductAdapter(this, productArrayList, db);
         activityProductsBinding.rvProducts.setHasFixedSize(true);
         activityProductsBinding.rvProducts.setLayoutManager(new LinearLayoutManager(this));
         activityProductsBinding.rvProducts.setAdapter(productAdapter);

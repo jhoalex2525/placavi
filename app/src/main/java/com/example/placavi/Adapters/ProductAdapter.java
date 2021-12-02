@@ -1,6 +1,8 @@
 package com.example.placavi.Adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +25,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     private ProductItemBinding productItemBinding;
     private ArrayList<Product> productArrayList;
     private FirebaseFirestore db;
-    public ProductAdapter(Context context, ArrayList<Product> productArrayList, FirebaseFirestore db){
+
+    public ProductAdapter(Context context, ArrayList<Product> productArrayList, FirebaseFirestore db) {
         this.context = context;
         this.productArrayList = productArrayList;
         this.db = db;
@@ -44,9 +47,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.itemBinding.tvStock.setText(String.valueOf(product.getStock()));
         holder.itemBinding.tvPrice.setText(String.valueOf(product.getPrice()));
         holder.itemBinding.tvCategory.setText(product.getCategory());
-        holder.itemBinding.btnDelete.setOnClickListener(new View.OnClickListener() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(DialogInterface dialog, int which) {
                 db.collection("products").document(product.getId()).delete()
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
@@ -63,6 +67,19 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 });
             }
         });
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        holder.itemBinding.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                builder.setMessage("¿Está seguro de elimiar el producto?");
+                builder.create().show();
+            }
+        });
     }
 
     @Override
@@ -72,6 +89,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     public class ProductViewHolder extends RecyclerView.ViewHolder {
         ProductItemBinding itemBinding;
+
         public ProductViewHolder(@NonNull ProductItemBinding itemBinding) {
             super(itemBinding.getRoot());
             this.itemBinding = itemBinding;

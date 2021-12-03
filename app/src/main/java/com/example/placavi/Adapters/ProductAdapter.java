@@ -3,6 +3,7 @@ package com.example.placavi.Adapters;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.placavi.EditProductActivity;
 import com.example.placavi.Entities.Product;
 import com.example.placavi.databinding.ProductItemBinding;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -78,6 +80,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             public void onClick(View v) {
                 builder.setMessage("¿Está seguro de elimiar el producto?");
                 builder.create().show();
+            }
+        });
+        holder.itemBinding.btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, EditProductActivity.class);
+                intent.putExtra("product", product);
+                context.startActivity(intent);
             }
         });
     }

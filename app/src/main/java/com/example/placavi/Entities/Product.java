@@ -2,7 +2,9 @@ package com.example.placavi.Entities;
 
 import com.google.firebase.firestore.DocumentId;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     @DocumentId
     private String id;
     private String name;

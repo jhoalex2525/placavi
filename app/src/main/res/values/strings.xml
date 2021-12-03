@@ -8,4 +8,10 @@
     <string name="product_stock">Stock</string>
     <string name="product_price">Precio</string>
     <string name="product_category">Categoria</string>
+    <string name="btn_add">Crear</string>
+    <string name="product_newname">Nombre del producto</string>
+    <string name="product_newdescription">Descripcion</string>
+    <string name="product_newstock">Stock</string>
+    <string name="product_newprice">Precio</string>
+    <string name="product_newcategory">Categoria</string>
 </resources>

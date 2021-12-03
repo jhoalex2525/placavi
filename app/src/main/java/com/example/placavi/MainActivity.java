@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void singUp (View view){
-        Intent intsingup = new Intent(this, SingUp.class);
+        Intent intsingup = new Intent(this, AddProductActivity.class);
         startActivity(intsingup);
     }
 
